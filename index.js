@@ -20,6 +20,11 @@ app.get("/",async(req,res)=>{
     res.json(resp)
 })
 
+app.get("/bien",async(req,res)=>{
+    let resp = await mostrarbien();
+    res.json(resp)
+})
+
 
 app.get("/bien/:id", async(req,res)=>{
     let resp = await mostrarbienporid(req.params.id);
