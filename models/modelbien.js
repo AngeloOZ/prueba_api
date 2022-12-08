@@ -68,7 +68,7 @@ function actualizarbien(cod) {
 function eliminarbien(cod) {
     return new Promise(
         (resolve, reject) => {
-            const query = conexion.format("DELETE FROM bien WHERE cod = ?", [cod.cod])
+            const query = conexion.format("DELETE FROM bien WHERE cod = ?", [cod])
             conexion.query(query, function (error, result) {
                 if (error) {
                     reject(error);

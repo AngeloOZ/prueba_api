@@ -72,9 +72,9 @@ app.put("/bien",async(request,response)=>{
 })
 
 
-app.delete("/bien", async(request,response)=>{
+app.delete("/bien/:id", async(request,response)=>{
     try{
-        await eliminarbien(request.body)
+        await eliminarbien(req.params.id)
         response.json({
             status: "201",
             message: "eliminado correctamente"
