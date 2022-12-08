@@ -74,7 +74,7 @@ app.put("/bien",async(request,response)=>{
 
 app.delete("/bien/:id", async(request,response)=>{
     try{
-        await eliminarbien(req.params.id)
+        await eliminarbien(request.params.id)
         response.json({
             status: "201",
             message: "eliminado correctamente"
