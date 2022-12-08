@@ -45,7 +45,7 @@ app.post("/bien",async(request,response)=>{
   }
   catch(e){
     console.log(e);
-    response.json({
+    response.status(400).json({
         status: "400",
         message: "no insertado"
     })
@@ -63,7 +63,7 @@ app.put("/bien",async(request,response)=>{
       }
     catch(e){
         console.log(e);
-        response.json({
+        response.status(400).json({
             status: "400",
             message: "no se pudo actualizar"
         })
@@ -84,7 +84,7 @@ app.delete("/bien", async(request,response)=>{
     }
     catch(e){
         console.log(e);
-        response.json({
+        response.status(400).json({
             status: "400",
             message: "no se pudo eliminar"
         })
