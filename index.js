@@ -47,7 +47,8 @@ app.post("/bien",async(request,response)=>{
     console.log(e);
     response.status(400).json({
         status: "400",
-        message: "no insertado"
+        message: "no insertado",
+        data: e
     })
   }
 })
