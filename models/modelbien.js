@@ -18,7 +18,7 @@ function mostrarbien() {
 function mostrarbienporid(cod) {
     return new Promise(
         (resolve, reject) => {
-            const query  = conexion.format("SELECT* FROM bien WHERE cod = ? ", [cod])
+            const query = conexion.format("SELECT* FROM bien WHERE cod = ? ", [cod])
             conexion.query(query, function (error, result) {
                 if (error) {
                     reject(error);
@@ -26,16 +26,16 @@ function mostrarbienporid(cod) {
                 else {
                     resolve(result);
                 }
-            }) 
+            })
         }
     );
 }
 
-function insertarbien(cod){
+function insertarbien(cod) {
     return new Promise(
-        (resolve, reject)=>{
-            const query= conexion.format("INSERT INTO bien(cod, cod_ant, tipo, nombre, serie ,marca, monto) VALUES (?,?,?,?,?,?,?)",[cod.cod, cod.codant, cod.tipo, cod.nombre, cod.serie, cod.marca, cod.monto ])
-            conexion.query(query,function(error,result){
+        (resolve, reject) => {
+            const query = conexion.format("INSERT INTO bien(cod, cod_ant, tipo, nombre, serie ,marca, monto) VALUES (?,?,?,?,?,?,?)", [cod.cod, cod.cod_ant, cod.tipo, cod.nombre, cod.serie, cod.marca, cod.monto])
+            conexion.query(query, function (error, result) {
                 if (error) {
                     reject(error);
                 }
@@ -49,11 +49,11 @@ function insertarbien(cod){
 };
 
 
-function actualizarbien(cod){
+function actualizarbien(cod) {
     return new Promise(
-        (resolve,reject)=>{
-            const query = conexion.format("UPDATE bien SET  cod_ant = ?,tipo  =? , nombre = ?, serie =? ,modelo = ?, marca =? , monto = ?  WHERE cod = ? ", [cod.codant, cod.tipo, cod.nombre, cod.serie, cod.modelo, cod.marca, cod.monto , cod.cod])
-            conexion.query(query,function(error,result){
+        (resolve, reject) => {
+            const query = conexion.format("UPDATE bien SET  cod_ant = ?,tipo  =? , nombre = ?, serie =? ,modelo = ?, marca =? , monto = ?  WHERE cod = ? ", [cod.cod_ant, cod.tipo, cod.nombre, cod.serie, cod.modelo, cod.marca, cod.monto, cod.cod])
+            conexion.query(query, function (error, result) {
                 if (error) {
                     reject(error);
                 }
@@ -65,11 +65,11 @@ function actualizarbien(cod){
     )
 }
 
-function eliminarbien(cod){
-    return new Promise (
-        (resolve,reject)=>{
-            const query = conexion.format("DELETE FROM bien WHERE cod = ?",[cod.cod])
-            conexion.query(query, function(error,result){
+function eliminarbien(cod) {
+    return new Promise(
+        (resolve, reject) => {
+            const query = conexion.format("DELETE FROM bien WHERE cod = ?", [cod.cod])
+            conexion.query(query, function (error, result) {
                 if (error) {
                     reject(error);
                 }
@@ -83,4 +83,4 @@ function eliminarbien(cod){
 
 
 
-module.exports = {mostrarbien, insertarbien, actualizarbien, eliminarbien,mostrarbienporid};
+module.exports = { mostrarbien, insertarbien, actualizarbien, eliminarbien, mostrarbienporid };
